@@ -1,0 +1,17 @@
+From: https://youtu.be/xk5Kw6frDG4?si=4czbu06cO52ijpOM
+
+sudo apt install build-essential cmake xorg-dev
+
+# https://www.glfw.org/download.html > download source package > extract and go to extracted folder
+cmake -G "Unix Makefiles"
+make
+sudo make install
+# some errors may appear due to lack of some packages. Search them up and download them
+
+sudo apt-get install libx11-dev libglu1-mesa-dev freeglut3-dev libglew2.2 libglew-dev libglu1-mesa libgl1 libglx-mesa0 libgl1-mesa-dev libglfw3-dev libglfw3
+
+# compile your program:
+
+gcc main.c -o myprogram.elf -Wall -lGL -lGLU -lglut -lGLEW -lglfw -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor
+
+g++ main.cpp -o my.elf -std=c++11 -Wall -lGL -lGLU -lglut -lGLEW -lglfw -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor
