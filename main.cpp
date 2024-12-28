@@ -27,7 +27,9 @@ int main() {
 	}
 	
 	float delta = 0.02f;
-	float square_length = 0.1f;
+	float square_len = 0.1f;
+	float start_x = 1.0/2.0 * square_len * board_len;
+	float start_y = 1.0/2.0 * square_len * board_len;
 	
 	/* Make the window's context current */
         glfwMakeContextCurrent(window);
@@ -41,10 +43,10 @@ int main() {
                 for (int i = 0; i < board_len; i++) {
                         for (int j = 0; j < board_len; j++) {
 		                glBegin(GL_QUADS);
-                                glVertex2f( 0.1f*j + delta, 0.1f*i + delta);
-                                glVertex2f( 0.1f*j + square_length - delta, 0.1f*i + delta);
-                                glVertex2f( 0.1f*j + square_length - delta, 0.1f*i + square_length - delta);
-                                glVertex2f( 0.1f*j + delta, 0.1f*i + square_length - delta);
+                                glVertex2f( 0.1f*j + delta - start_x, 0.1f*i + delta - start_y);
+                                glVertex2f( 0.1f*j + square_len - delta - start_x, 0.1f*i + delta - start_y);
+                                glVertex2f( 0.1f*j + square_len - delta - start_x, 0.1f*i + square_len - delta - start_y);
+                                glVertex2f( 0.1f*j + delta - start_x, 0.1f*i + square_len - delta - start_y);
                                 glEnd();
                         }
 	        }
